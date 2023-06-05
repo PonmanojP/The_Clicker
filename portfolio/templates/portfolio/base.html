@@ -1,0 +1,226 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Manoj's Personal Portfolio</title>
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    
+    <style>
+        body{
+            background-color: #DAFFA9;
+            overflow-x:clip;
+        }
+
+        .navbar{
+            height: 150px;
+           
+            margin-bottom:40px;
+            background-color: #FFCDA9;
+        }
+
+        .navbar-nav{
+            position:absolute;
+            right:20px;
+            background-color: #FFCDA9;
+        }
+
+        .navbar-toggler{
+          position: relative;
+          
+        }
+
+        .navbar-brand{
+          position:relative;
+          width:250px;
+
+        }
+
+        .navbar-brand img{
+            width:350px;
+            
+        }
+        
+
+        #profilepic{
+            height:400px;
+            width:400px;
+            border-radius: 20px;
+            border:2px solid black;
+            overflow: hidden;
+            padding:0;
+            margin-top:40px;
+            margin-bottom:100px;
+        }
+
+        #profilepic img{
+            height:400px;
+            width:100%;
+            padding:0;
+        }
+
+        #home-tiles3{
+            margin-bottom:60px;
+        }
+
+        .card{
+            width:80%;
+            margin-left:10%;
+            margin-bottom:60px;
+            margin-top:40px;
+            border:1px solid black;
+        }
+
+        .card *{
+            text-align: center;
+        }
+
+        .panel-footer{
+            background-color:#FFCDA9;
+            position:absolute;
+            width:100%;
+            margin-top:50px;
+            
+        }
+
+        @media(max-width:992px){
+            .navbar-nav{
+              position: relative;
+                width:110%;
+                text-align: center;
+                margin-right:0;
+                height:100px;
+            }
+
+            
+
+            #instagram,#telegram{
+                margin-bottom:100px;
+            }
+
+        }
+
+        @media(max-width:576px){
+            .navbar-brand img{
+                width:170px;
+                height:80px;
+
+                
+            }
+
+            .navbar-brand {
+                width:170px;
+            }
+
+            #profilepic{
+                width:90%;
+
+            }
+
+            #box{
+                width:90%;
+                
+            }
+
+            #box p{
+                
+                font-size:0.9em;
+                margin-left:0;
+                margin-right: 0;
+                margin-top:10px;
+            }
+        }
+
+        @media(max-width:300px){
+            .navbar-brand img{
+                width:150px;
+            }
+            
+            .navbar-brand{
+                width:150px;
+            }
+
+        }
+
+
+    </style>
+
+  <header>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{% url 'home' %}"><img id="logo" src="{% static 'portfolio/2.png'%}"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="{% url 'blog:all_blog' %}">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% static 'portfolio/resume.pdf' %}">Resume</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+  </header>  
+
+</head>
+
+
+
+
+
+
+
+
+
+  <body>
+
+    {% block content %}{% endblock %}
+
+
+
+
+    <center><footer class="panel-footer">
+        <div class="container">
+            <br>
+            <br>
+            <div class="row">
+                <section id ="instagram" class="col-sm-6 col-lg-6">
+                    <a href="https://www.instagram.com/mmanojbilla/" target="_blank"><img src="{% static 'portfolio/insta.png'%}"></a>
+                    
+                </section>
+                <section id="Telegram" class = "col-sm-6 col-lg-6">
+                    <img src="{% static 'portfolio/telegram.png'%}">
+                    
+                </section>
+            </div>
+            <br>
+            <br>
+            <div class ="text-center">&copy; Copyright Ponmanoj P- 2023</div>
+            <br>
+            <br>
+    </footer></center>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  </body>
+</html>
+
+
+
+
+
+
+<!-- {{ project.title }}
+{{project.description}}
+<br>
+<img src="{{ project.image.url }}" height="200" width="200">
+<br>
+{%if project.url%}
+<a href="{{project.url}}">click me</a>
+{% endif %} -->
+

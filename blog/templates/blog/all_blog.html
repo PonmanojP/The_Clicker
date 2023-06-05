@@ -1,0 +1,160 @@
+<!doctype html>
+{% extends 'portfolio/base.html' %}
+
+{% block content %}
+{% load static %}
+  <head>
+    <style>
+
+        #header{
+            margin-top:50px;
+            margin-bottom:40px;
+        }
+
+        #link{
+            text-decoration: none;
+            font-style: italic;
+            color:#000;
+            margin-left:200px;
+        }
+
+        #blog-title,h5,p,h2{
+            text-align: center;
+        }
+
+        p{
+            margin-bottom:50px;
+        }
+
+        #content:nth-child(even){
+            background-color: #DCFFF9;
+            height:auto;
+            width:90%;
+            margin-left: 5%;
+            border:1px solid black;
+            border-radius:25px;
+        }
+        #content:nth-child(odd){
+            background-color: #FFFFDC;
+            height:auto;
+            width:90%;
+            margin-left: 5%;
+            border:1px solid black;
+            border-radius:25px;
+        }
+
+        #content{
+          margin-bottom:50px;
+        }
+
+        /* #content:nth-child(1){
+            background-color:white;
+            height: auto;
+        }
+
+        #content:nth-child(2){
+            height: auto;
+            background-color: green;
+        } */
+
+    </style>
+
+</head>
+
+
+
+
+
+
+
+
+
+  <body>
+
+    <center><h2 id="header">Manoj has written {{blogs.count}} blog{{ blogs.count|pluralize }}</h2></center>
+
+
+    
+    {% for blog in blogs %}
+    <div id="content">
+    {%if blog.url%}
+    <a id="link" href="{% url 'blog:detail' blog.id %}"><h3 id="blog-title">{{ blog.title }}</h3></a>
+    {% endif %}
+        
+        <h5>{{ blog.date}}</h5>
+       <p>{{blog.description|striptags|truncatechars:100}}</p> 
+        <br>
+    </div>
+        
+    {% endfor %}
+<br>
+<br>
+<center><a href="{% url 'home' %}" class="btn btn-primary">Back to home</a></center>
+
+    {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <center><h1>My Daily digest</h1></center>
+
+<h2>Introduction</h2>
+<p>Hello guys in this blog I will be sharing some of the funny and Interesting experiences that I am experiencing daily and give some essence of it to you..</p>
+
+<h2>Manoj has written {{blogs.count}} blog{{ blogs.count|pluralize }}</h2>
+
+{% for blog in blogs %}
+
+{%if blog.url%}
+<a href="{% url 'blog:detail' blog.id %}"><h2>{{ blog.title }}</h2></a>
+{% endif %}
+    
+    {{ blog.date}}
+    {{blog.description|striptags|truncatechars:100}}
+    <br>
+    
+{% endfor %} -->
